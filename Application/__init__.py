@@ -24,7 +24,7 @@ def create_app(config: IApplicationConfiguration, /) -> Flask:
 
     @app.get('/')
     def home():
-        return User.query.all()
+        return "Hello, World!"
 
     if app.testing:
         @app.get('/throw_error/<value>')

@@ -1,17 +1,40 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTMX Learning</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='./bootstrap-5.3.3-dist/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='./bootstrap-icons-1.11.3/font/bootstrap-icons.min.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='./favicon.svg') }}">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTMX Learning</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='./bootstrap-5.3.3-dist/css/bootstrap.css') }}">
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='./bootstrap-icons-1.11.3/font/bootstrap-icons.min.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='./favicon.svg') }}">
+
+  <style>
+    .htmx-indicator {
+      display: none;
+    }
+
+    .htmx-request .htmx-indicator {
+      display: block;
+    }
 
 
-    <h1> Hello, World! </h1> 
+    .hide-when-requesting {
+      display: block;
+    }
+
+    .htmx-request .hide-when-requesting {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <h1> Hello, World! </h1>
 
 
 
@@ -20,17 +43,18 @@
 
 
 
-    <script>
-      document.addEventListener("DOMContentLoaded", (event)=>{
-        document.body.addEventListener('htmx:beforeSwap', function(evt){
-          if(evt.detail.xhr.status === 422) {
-            evt.detail.shouldSwap = true;
-            evt.detail.isError = false;
-          }
-        })
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      document.body.addEventListener('htmx:beforeSwap', function (evt) {
+        if (evt.detail.xhr.status === 422) {
+          evt.detail.shouldSwap = true;
+          evt.detail.isError = false;
+        }
       })
-    </script>
-    <script src="{{ url_for('static', filename='htmx.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='./bootstrap-5.3.3-dist/js/bootstrap.bundle.js') }}"></script>
-  </body>
+    })
+  </script>
+  <script src="{{ url_for('static', filename='htmx.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./bootstrap-5.3.3-dist/js/bootstrap.bundle.js') }}"></script>
+</body>
+
 </html>
