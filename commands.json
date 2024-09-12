@@ -8,5 +8,6 @@
     "generate secret key" : "python3 -c 'import secrets; print(secrets.token_hex())'",
     "test" : "rm ./instance/*.db;coverage erase;coverage run --include='Application/**,instance/**,tests/**/test*.py' -m pytest -vv -rA;coverage report;coverage html",
     "run prod" : "gunicorn -w 4 'bootserver:wsgiapp' -b 0.0.0.0:8000",
-    "run debug" : "python3 bootserver.py"
+    "run debug" : "python3 bootserver.py",
+    "delete .gitignored files": "git clean -fdX"
 }
