@@ -6,7 +6,7 @@ __pycache__/
 .mypy_cache
 *_cache
 
-instance/secrets.json
+.env
 
 .pytest_cache/
 .coverage

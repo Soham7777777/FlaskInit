@@ -1,6 +1,9 @@
 from Application import create_app
 from instance import Deployment, Development
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 directory = 'instance'
 extensions = ('.db', '.sqlite')

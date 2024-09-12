@@ -1,9 +1,6 @@
 from datetime import timedelta
-import json
 from abc import ABC
-
-with open('./instance/secrets.json', 'r') as f:
-    secrets = json.load(f)
+import os
 
 class IFlaskDefaultConfiguration(ABC):
     DEBUG = False
@@ -31,7 +28,7 @@ class IFlaskDefaultConfiguration(ABC):
     MAX_COOKIE_SIZE = 4093
 
 class IApplicationConfiguration(IFlaskDefaultConfiguration):
-    SECRET_KEY = secrets['key'] # type: ignore
+    SECRET_KEY = os.getenv('SECRET_KEY') # type: ignore
     DEBUG=True
     TESTING=True
 

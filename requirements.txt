@@ -25,6 +25,7 @@ Pygments==2.18.0
 pymongo==4.8.0
 pyodbc==5.1.0
 pytest==8.2.2
+python-dotenv==1.0.1
 six==1.16.0
 SQLAlchemy==2.0.31
 typing_extensions==4.12.2
